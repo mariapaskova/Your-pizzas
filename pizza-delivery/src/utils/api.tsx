@@ -6,23 +6,23 @@ export interface IPizza {
   viewerLiked: boolean;
 }
 
-// export default {
-//   listPizzas() {
-//     return new Promise(resolve =>
-//       setTimeout(() => {
-//         resolve(DATA);
-//       }, 10)
-//     );
-//   },
+export default {
+  listPizzas() {
+    return new Promise(resolve =>
+      setTimeout(() => {
+        resolve(DATA);
+      }, 10)
+    );
+  },
 
-//   getPizza(id: string) {
-//     return new Promise(resolve =>
-//       setTimeout(() => {
-//         resolve(DATA.find(p => p.id === id) || null);
-//       }, 10)
-//     );
-//   }
-// };
+  getPizza(id: string) {
+    return new Promise(resolve =>
+      setTimeout(() => {
+        resolve(DATA.find(p => p.id === id) || null);
+      }, 10)
+    );
+  }
+};
 
 const DATA: IPizza[] = [
   {
@@ -68,5 +68,3 @@ const DATA: IPizza[] = [
     viewerLiked: false
   }
 ];
-
-export default DATA;

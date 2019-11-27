@@ -1,31 +1,23 @@
 import React from "react";
 import "./pizza.css";
 import Button from "../button/button";
+import VoteButton from "../voteButton/voteButton";
+import { IPizza } from "../../utils/api";
 
-export default function Pizza({
-  isHidden,
-  name,
-  likes,
-  price,
-  voteUnvote,
-  hide
-}: any) {
+export default function Pizza({ pizza }: { pizza: IPizza }) {
   return (
-    <>
-      {!isHidden && (
-        <div className="listing">
-          <Button onClick={voteUnvote}>Likes: {likes}</Button>
+    <li className="listing" key={pizza.id}>
+      <VoteButton pizza={pizza}></VoteButton>
+      <div>
+        <div className="first-row">
           <div>
-            <div className="first-row">
-              <div>{name}</div>
-              <Button onClick={hide}>Hide</Button>
-            </div>
-            <div className="first-row">
-              <div>Price: {price}</div>
-            </div>
+            {pizza.name} (${pizza.price}) Likes: {pizza.likes}
           </div>
         </div>
-      )}
-    </>
+        <Button className="btn btn-primary" onClick={pizza}>
+          Add to Cart
+        </Button>
+      </div>
+    </li>
   );
 }
