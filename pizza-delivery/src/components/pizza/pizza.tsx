@@ -3,6 +3,7 @@ import "./pizza.css";
 import Button from "../button/button";
 import VoteButton from "../voteButton/voteButton";
 import { IPizza } from "../../utils/api";
+import { AddToCart } from "../../pages/cart/cart";
 
 export default function Pizza({ pizza }: { pizza: IPizza }) {
   return (
@@ -14,9 +15,7 @@ export default function Pizza({ pizza }: { pizza: IPizza }) {
             {pizza.name} (${pizza.price}) Likes: {pizza.likes}
           </div>
         </div>
-        <Button className="btn btn-primary" onClick={pizza}>
-          Add to Cart
-        </Button>
+        <AddToCart pizza={pizza} />
       </div>
     </li>
   );
