@@ -23,7 +23,7 @@ export default function PizzaList() {
     <div>
       <ul>
         {pizzas.map(pizza => {
-          return <Pizza pizza={pizza}></Pizza>;
+          return <Pizza pizza={pizza} key={pizza.id}></Pizza>;
         })}
       </ul>
     </div>
