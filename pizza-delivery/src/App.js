@@ -3,6 +3,7 @@ import "./App.css";
 import PizzaList from "./pages/pizzas/pizza-list";
 import { Cart } from "./pages/cart/cart";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import PizzaDetails from "./pages/pizzas/pizza-details";
 
 function App() {
   return (
@@ -16,15 +17,16 @@ function App() {
         <Route exact path="/">
           <div>Homeeee</div>
         </Route>
+        <Route path="/pizzas/:id">
+          <PizzaDetails />
+        </Route>
         <Route path="/pizzas">
           <PizzaList />
         </Route>
         <Route path="/cart">
           <Cart />
         </Route>
-        <Route path="/pizzas/:id">
-          <div>Should show pizza details</div>
-        </Route>
+
         <Route path="*"></Route>
         {/* <NoMatch /> */}
       </Switch>

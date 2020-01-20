@@ -1,11 +1,12 @@
 import React from "react";
 import "./pizza.css";
-import Button from "../button/button";
 import VoteButton from "../voteButton/voteButton";
 import { IPizza } from "../../utils/api";
 import { AddToCart } from "../../pages/cart/cart";
+import { Link, useRouteMatch } from "react-router-dom";
 
 export default function Pizza({ pizza }: { pizza: IPizza }) {
+  let match = useRouteMatch();
   return (
     <li className="listing" key={pizza.id}>
       <VoteButton pizza={pizza}></VoteButton>
@@ -16,6 +17,7 @@ export default function Pizza({ pizza }: { pizza: IPizza }) {
           </div>
         </div>
         <AddToCart pizza={pizza} />
+        <Link to={`${match.url}/${pizza.id}`}>Pizza details</Link>
       </div>
     </li>
   );
